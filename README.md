@@ -3,8 +3,7 @@
 **5-to-1 Multiplexer**
 
 ```
-module multiplexer (input [4:0] a, input [4:0] b,input [4:0] c,input [4:0] d,input [4:0] e, input[2:0] sel, 
-							output reg [4:0]  out); 
+module multiplexer (input [4:0] a, input [4:0] b,input [4:0] c,input [4:0] d,input [4:0] e, input[2:0] sel, output reg [4:0]  out); 
     always @ (a or b or c or d or sel) begin
 		 case (sel)
 			2'b000: out <= a;
@@ -29,11 +28,9 @@ Result of tests:
 **JK Flip Flop**
 
 ```
-module jk_flip_flop ( input j, // Input J
-    				input k, // Input K
-    				input rstn, // Active-low async reset
-    				input clk, // Input clk
-    				output reg q); // Output Q
+module jk_flip_flop ( input j, Input J, input k, Input K, input rstn, Active-low async reset
+		      input clk, // Input clk
+		      output reg q); // Output Q
     always @ (posedge clk or negedge rstn) begin
     	if (!rstn) begin
     		q <= 0;
