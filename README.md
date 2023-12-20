@@ -21,7 +21,7 @@ endmodule
 
 Result of tests:
 
-!()[https://github.com/sofyafyaa/fpga/blob/main/hw1/Screenshot_1.png]
+![test](https://github.com/sofyafyaa/fpga/blob/main/hw1/Screenshot_1.png)
 
 
 <h1>Homework 2</h1>
@@ -44,9 +44,9 @@ module jk_flip_flop ( input j, // Input J
 endmodule
 ```
 
-!()[https://github.com/sofyafyaa/fpga/blob/main/hw2/jk_flip_flpo.png]
+![2](https://github.com/sofyafyaa/fpga/blob/main/hw2/jk_flip_flpo.png)
 
-!()[https://github.com/sofyafyaa/fpga/blob/main/hw2/res_jk_flip_flop.png]
+![3](https://github.com/sofyafyaa/fpga/blob/main/hw2/res_jk_flip_flop.png)
 
 **Mod 10 counter**
 
@@ -66,7 +66,73 @@ module mod10_count ( input clk, input rstn, output reg[3:0] out);
 endmodule
 ```
 
-!()[https://github.com/sofyafyaa/fpga/blob/main/hw2/model10counter.png]
+![4](https://github.com/sofyafyaa/fpga/blob/main/hw2/model10counter.png)
 
-!()[https://github.com/sofyafyaa/fpga/blob/main/hw2/res_model10counter.png]
+![5](ttps://github.com/sofyafyaa/fpga/blob/main/hw2/res_model10counter.png)
 
+**4-bit Left Shift Register**
+
+```
+module lshift_4b_reg(input d,
+    						input clk,
+    						input rstn,
+    						output reg [3:0] out);
+    always @ (posedge clk) begin
+    	if (!rstn) begin
+    		out <= 0;
+    	end else begin
+    		out <= {out[2:0], d};
+    	end
+    end
+endmodule
+```
+![](https://github.com/sofyafyaa/fpga/blob/main/hw2/shiftreg.png)
+![](https://github.com/sofyafyaa/fpga/blob/main/hw2/res_shiftreg.png)
+
+**Compination of ligic elements**
+
+```
+module combo ( input a, b, c, d, e, output reg z);
+    always @ ( a or b or c or d or e) begin
+    	z = ((a & b) | (c ^ d) & ~e);
+    end
+endmodule
+```
+![](https://github.com/sofyafyaa/fpga/blob/main/hw2/res_combination.png)
+![](https://github.com/sofyafyaa/fpga/blob/main/hw2/res_combination.png)
+
+** Half Adder **
+
+```
+module halfadd ( input a, b, output reg sum, cout);
+    always @ (a or b) begin
+    	{cout, sum} = a + b;
+    end
+endmodule
+```
+![](https://github.com/sofyafyaa/fpga/blob/main/hw2/halfadder.png)
+![](https://github.com/sofyafyaa/fpga/blob/main/hw2/res_halfadder.png)
+
+**Ful Adder **
+
+```
+module fulladd ( input a, b, cin, output reg sum, cout);
+    always @ (a or b or cin) begin
+    	{cout, sum} = a + b + cin;
+    end
+endmodule
+```
+![](https://github.com/sofyafyaa/fpga/blob/main/hw2/fuladder.png)
+![](https://github.com/sofyafyaa/fpga/blob/main/hw2/res_fulad.png)
+
+**2x1 Multipolexer**
+
+```
+module mux21 (input a, b, sel, output reg c);
+    always @ ( a or b or sel) begin
+    	c = sel ? a : b;
+    end
+endmodule
+```
+
+![](https://github.com/sofyafyaa/fpga/blob/main/hw2/res2xmultiplexer.png)
